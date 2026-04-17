@@ -4,7 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
-import org.example.project.viewmodel.DeckName
+
+enum class ColorsAndDeckName{
+    GameMenu, SpMythology, WarHammer, Femboy
+}
 
 object AppColors{
     //this are the basic app colors, which are used in the menu
@@ -17,14 +20,16 @@ object AppColors{
     var group by mutableStateOf(Color(0xFFA990EE)) //used for the box/button to select the card group
 
     //the other color palette will be used depending on the game mode and the deck used
-    fun changeAppColors(deckName: DeckName){
-        when (deckName) {
-            DeckName.SpMythology -> spanishMythologyColorPalette()
-            DeckName.WarHammer -> warHammerColorPalette()
-            DeckName.Femboy -> femboyColorPalette()
+    fun changeAppColors(colorsAndDeckName: ColorsAndDeckName){
+        when (colorsAndDeckName) {
+            ColorsAndDeckName.GameMenu -> gameMenu()
+            ColorsAndDeckName.SpMythology -> spanishMythologyColorPalette()
+            ColorsAndDeckName.WarHammer -> warHammerColorPalette()
+            ColorsAndDeckName.Femboy -> femboyColorPalette()
         }
     }
 
+    private fun gameMenu(){}
     private fun spanishMythologyColorPalette(){}
     private fun warHammerColorPalette(){}
     private fun femboyColorPalette(){}
