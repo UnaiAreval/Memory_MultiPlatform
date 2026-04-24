@@ -7,9 +7,11 @@ sealed class Route : NavKey{
     @Serializable
     data object MainMenu: Route()
     @Serializable
-    data object MemoriGame: Route()
+    data object MemoryGame: Route()
     @Serializable
     data object OrderGame: Route()
     @Serializable
     data object ResultsScreen: Route()
+    @Serializable
+    data object SettingsScreen: Route()
 }

@@ -9,8 +9,10 @@ val navConfig = SavedStateConfiguration {
     serializersModule = SerializersModule {
         polymorphic(NavKey::class) {
             subclass(Route.MainMenu::class, Route.MainMenu.serializer())
-            subclass(Route.MemoriGame::class, Route.MemoriGame.serializer())
+            subclass(Route.MemoryGame::class, Route.MemoryGame.serializer())
             subclass(Route.OrderGame::class, Route.OrderGame.serializer())
+            subclass(Route.ResultsScreen::class, Route.ResultsScreen.serializer())
+            subclass(Route.SettingsScreen::class, Route.SettingsScreen.serializer())
         }
     }
 }
