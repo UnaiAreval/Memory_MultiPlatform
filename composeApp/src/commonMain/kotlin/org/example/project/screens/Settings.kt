@@ -18,7 +18,6 @@ fun SettingsScreen(goBack: () -> Unit, appVM: DeckViewModel){
             visible = false
         ){
             LazyColumn {
-
             }
         }
     }

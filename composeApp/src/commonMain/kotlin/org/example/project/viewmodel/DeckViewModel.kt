@@ -15,10 +15,23 @@ class DeckViewModel : ViewModel() {
     val groups = arrayOf<String>("", "")
     val appColors = AppColors
 
-    fun spanishMythology(){
+
+
+    fun changeDeck(cd: ColorsAndDeckName){
+        when (cd){
+            ColorsAndDeckName.GameMenu -> changeColors(cd)
+            ColorsAndDeckName.SpMythology -> spanishMythology()
+            ColorsAndDeckName.WarHammer -> warhammer40k()
+            ColorsAndDeckName.AnimeGirlLike -> animeGirlLike()
+        }
+    }
+    fun changeColors(cd: ColorsAndDeckName){
+        appColors.changeAppColors(cd)
+    }
+
+    private fun spanishMythology(){
         groups[0] = "Feral / animal"
         groups[1] = "Human like"
-        appColors.changeAppColors(ColorsAndDeckName.SpMythology)
 
         deck = listOf(
             Card (name = "Ramidreju", image = "https://static.wikia.nocookie.net/mitologiaiberica/images/f/f9/Ramidreju_by_verreaux-d36hdf2.jpg/revision/latest?cb=20121201094046&path-prefix=es", imageLocation = ImageLocation.Remote, groupIndex = 0),
@@ -32,10 +45,9 @@ class DeckViewModel : ViewModel() {
         )
     }
 
-    fun warhammer40k(){
+    private fun warhammer40k(){
         groups[0] = "Imperium of mankind"
         groups[1] = "All other heretic ones"
-        appColors.changeAppColors(ColorsAndDeckName.WarHammer)
 
         deck = listOf(
             Card (name = "Saint Celestin", image = "https://static.wikia.nocookie.net/warhammer40k/images/e/ef/Saint_celestine.jpg/revision/latest?cb=20250104204154", imageLocation = ImageLocation.Remote, groupIndex = 0),
@@ -49,10 +61,9 @@ class DeckViewModel : ViewModel() {
         )
     }
 
-    fun animeGirlLike(){
+    private fun animeGirlLike(){
         groups[0] = "Femboy"
         groups[1] = "Girl"
-        appColors.changeAppColors(ColorsAndDeckName.AnimeGirlLike)
 
         deck = listOf(
             Card (name = "Astolfo", image = "", imageLocation = ImageLocation.Remote, groupIndex = 0),
@@ -66,7 +77,7 @@ class DeckViewModel : ViewModel() {
         )
     }
 
-    fun animeHorse(){
+    private fun animeHorse(){
         deck = listOf(
             Card (name = "", image = "", imageLocation = ImageLocation.Remote, groupIndex = 0),
             Card (name = "", image = "", imageLocation = ImageLocation.Remote, groupIndex = 0),
