@@ -35,7 +35,7 @@ import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun MenuScreen(navigateToSettings: () -> Unit, appVM: DeckViewModel, gameModes: List<GameMode>) {
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = Modifier.fillMaxSize().background(appVM.appColors.background)) {
         Box(
             modifier = Modifier.fillMaxWidth().fillMaxHeight(0.15f)
                 .background(appVM.appColors.buttonBackground)
@@ -79,6 +79,7 @@ fun MenuScreen(navigateToSettings: () -> Unit, appVM: DeckViewModel, gameModes: 
                 .fillMaxWidth(0.4f).fillMaxHeight(0.6f)
                 .padding(10.dp)
                 .clip(RoundedCornerShape(20.dp))
+                .background(appVM.appColors.buttonBackground)
                 .border(width = 2.dp, color = appVM.appColors.borders, RoundedCornerShape(20.dp))
         ) {
             for (mode in gameModes){
