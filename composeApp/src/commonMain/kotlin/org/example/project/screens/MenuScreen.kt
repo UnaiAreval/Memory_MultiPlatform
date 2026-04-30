@@ -30,15 +30,15 @@ import memori.composeapp.generated.resources.Res
 import memori.composeapp.generated.resources.memorylogo
 import memori.composeapp.generated.resources.settings_icon
 import org.example.project.model.GameMode
-import org.example.project.viewmodel.DeckViewModel
+import org.example.project.viewmodel.GameViewModel
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun MenuScreen(navigateToSettings: () -> Unit, appVM: DeckViewModel, gameModes: List<GameMode>) {
+fun MenuScreen(navigateToSettings: () -> Unit, appVM: GameViewModel, gameModes: List<GameMode>) {
     Column(modifier = Modifier.fillMaxSize().background(appVM.appColors.background)) {
         Box(
             modifier = Modifier.fillMaxWidth().fillMaxHeight(0.15f)
-                .background(appVM.appColors.buttonBackground)
+                .background(appVM.appColors.backgroundSupport)
                 .align(Alignment.CenterHorizontally)
         ) {
             Text(
@@ -46,22 +46,23 @@ fun MenuScreen(navigateToSettings: () -> Unit, appVM: DeckViewModel, gameModes: 
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.align(Alignment.Center)
+                modifier = Modifier.align(Alignment.Center),
+                color = appVM.appColors.text
             )
             Icon(
                 painter = painterResource(Res.drawable.settings_icon),
                 contentDescription = "Localized description",
-                modifier = Modifier.fillMaxHeight(0.6f)
+                modifier = Modifier.fillMaxHeight(0.4f)
                     .clickable{ navigateToSettings() }
                     .align(Alignment.CenterEnd)
-                    .padding(10.dp)
+                    .padding(20.dp)
             )
         }
 
         Image(
             painter = painterResource(Res.drawable.memorylogo),
             contentDescription = "App icon",
-            modifier = Modifier.fillMaxSize(0.4f).align(Alignment.CenterHorizontally)
+            modifier = Modifier.fillMaxSize(0.2f).align(Alignment.CenterHorizontally).padding(10.dp)
         )
 
         Spacer(Modifier.fillMaxSize(0.1f))
@@ -71,7 +72,8 @@ fun MenuScreen(navigateToSettings: () -> Unit, appVM: DeckViewModel, gameModes: 
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            color = appVM.appColors.text
         )
         LazyColumn(
             Modifier

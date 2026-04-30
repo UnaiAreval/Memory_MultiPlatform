@@ -16,13 +16,14 @@ data class Palette(
 object AppColors{
     //this are the basic app colors, which are used in the menu
     var background by mutableStateOf(Color(0xFFFFFFFF))
+    var backgroundSupport by mutableStateOf(Color(0xFFDCDCDC))
     var borders by mutableStateOf(Color(0xFF4A26AD))
     var text by mutableStateOf(Color(0xFF000000))
     var button by mutableStateOf(Color(0xFF764CEA))
     var buttonText by mutableStateOf(Color(0xFFFFFFFF))
-    var buttonBackground by mutableStateOf(Color(0xFFA3A3A3))
-    var group0 by mutableStateOf(Color(0xFFA990EE))
-    var group1 by mutableStateOf(Color(0xFFA990EE))
+    var buttonBackground by mutableStateOf(Color(0xFFBDBDBD))
+    var group0 by mutableStateOf(Color(0xFF00A6FF))
+    var group1 by mutableStateOf(Color(0xFFFD0000))
 
     var palettesList = listOf<Palette>(
         Palette("Base Colors",Colors.Base),
@@ -43,6 +44,7 @@ object AppColors{
 
     private fun base(){
         background = Color(0xFFFFFFFF)
+        backgroundSupport = Color(0xFFDCDCDC)
         borders = Color(0xFF4A26AD)
         text  = Color(0xFF000000)
         button = Color(0xFF764CEA)
@@ -52,8 +54,9 @@ object AppColors{
         group1 = Color(0xFFFD0000)
     }
     private fun brownPalette(){
-        background = Color(0xFFA78C70)
-        borders = Color(0xFF715638)
+        background = Color(0xFFCEBEA0)
+        backgroundSupport = Color(0xFF7B6557)
+        borders = Color(0xFF6F592C)
         text  = Color(0xFF000000)
         button = Color(0xFF573600)
         buttonText = Color(0xFFBB9D7D)
@@ -63,22 +66,24 @@ object AppColors{
     }
     private fun imperialPalette(){
         background = Color(0xFF000000)
-        borders = Color(0xFFCB9B50)
+        backgroundSupport = Color(0xFF404040)
+        borders = Color(0xFFA77F40)
         text  = Color(0xFFFFFFFF)
         button = Color(0xFF8A2F2F)
         buttonText = Color(0xFFE5A949)
-        buttonBackground = Color(0xFFBF884D)
+        buttonBackground = Color(0xFF3F3F3F)
         group0 = Color(0xFF90799E)
         group1 = Color(0xFFA58F63)
     }
     private fun pinkAndBluePalette(){
         background = Color(0xFFFDB3FF)
-        borders = Color(0xFF7FF0FF)
+        backgroundSupport = Color(0xFFFC8CFF)
+        borders = Color(0xFF63FFFF)
         text  = Color(0xFFFFFFFF)
-        button = Color(0xFFAA61FF)
+        button = Color(0xFFB3FFFC)
         buttonText = Color(0xFF000000)
-        buttonBackground = Color(0xFFCEA3FF)
+        buttonBackground = Color(0xFF925AF9)
         group0 = Color(0xFFFC5CFF)
-        group1 = Color(0xFF2BB5FF)
+        group1 = Color(0xFF5CDEFF)
     }
 }

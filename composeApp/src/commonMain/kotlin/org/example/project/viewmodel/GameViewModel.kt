@@ -10,30 +10,30 @@ import org.example.project.ui.theme.AppColors
 import org.example.project.ui.theme.Colors
 
 
-class DeckViewModel : ViewModel() {
+class GameViewModel : ViewModel() {
     var table by mutableStateOf( listOf<Int>() ) //used to set the card pairs in the table
     var deck by mutableStateOf(listOf<Card>())
+    val decksList = mapOf<String,() -> Unit>(
+        "Spanish Mythology" to { spanishMythology() },
+        "WarHammer 40k" to { warhammer40k() },
+        "Anime Girls" to { animeGirlLike() },
+        "Umamusume" to { animeHorse() }
 
-    var textToDivideGroups by mutableStateOf("")
+    )
+    private var cardsSelected = 0
+
+    val textToDivideGroups = mutableStateOf("")
     val groups = arrayOf<String>("", "")
+
     val appColors = AppColors
 
-
-    fun changeDeck(deckName: String){
-        when (deckName){
-            "Spanish Mythology" -> spanishMythology()
-            "WarHammer 40k" -> warhammer40k()
-            "Anime Girls" -> animeGirlLike()
-            "Umamusume" -> animeHorse()
-        }
-    }
     fun changeColors(colorToChange: Colors){
         appColors.changeAppColors(colorToChange)
     }
 
     //Offline decks
     private fun spanishMythology(){
-        textToDivideGroups = "How is this creature shaped?"
+        textToDivideGroups.value = "How is this creature shaped?"
         groups[0] = "Feral / animal"
         groups[1] = "Human like"
 
@@ -57,7 +57,7 @@ class DeckViewModel : ViewModel() {
     }
 
     private fun warhammer40k(){
-        textToDivideGroups = "Recognise the ones who are with the Emperor"
+        textToDivideGroups.value = "Recognise the ones who are with the Emperor"
         groups[0] = "Imperium of mankind"
         groups[1] = "All other heretic ones"
 
@@ -81,7 +81,7 @@ class DeckViewModel : ViewModel() {
     }
 
     private fun animeGirlLike(){
-        textToDivideGroups = "Which of them are boys?"
+        textToDivideGroups.value = "Which of them are boys?"
         groups[0] = "Femboy"
         groups[1] = "Girl"
 
@@ -105,7 +105,7 @@ class DeckViewModel : ViewModel() {
     }
 
     private fun animeHorse(){
-        textToDivideGroups = "Which gender are / were this horses in real life?"
+        textToDivideGroups.value = "Which gender are / were this horses in real life?"
         groups[0] = "Male"
         groups[1] = "Female"
 

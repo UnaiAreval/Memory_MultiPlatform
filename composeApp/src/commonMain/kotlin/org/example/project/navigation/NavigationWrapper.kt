@@ -11,11 +11,11 @@ import org.example.project.screens.MenuScreen
 import org.example.project.screens.OrderGameScreen
 import org.example.project.screens.ResultScreen
 import org.example.project.screens.SettingsScreen
-import org.example.project.viewmodel.DeckViewModel
+import org.example.project.viewmodel.GameViewModel
 
 @Composable
 fun NavigationWrapper(){
-    val appVM: DeckViewModel = viewModel{ DeckViewModel() }
+    val appVM: GameViewModel = viewModel{ GameViewModel() }
     val backStack = rememberNavBackStack(navConfig, Route.MainMenu)
 
     val gameModes = listOf<GameMode>(
@@ -42,10 +42,11 @@ fun NavigationWrapper(){
                     },
                     exitGame = {
                         backStack.removeLastOrNull()
-                    }
+                    },
+                    appVM
                 )
             }
-            entry<Route.OrderGame> { key ->
+            entry<Route.OrderGame> {
                 OrderGameScreen(
                     navigateToResult = {
                         backStack.removeLastOrNull()
