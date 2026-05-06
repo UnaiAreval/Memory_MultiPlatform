@@ -118,7 +118,9 @@ fun SettingsScreen(goBack: () -> Unit, appVM: GameViewModel){
         ){
             for (deck in appVM.decksList){
                 item {
-                    Box(){
+                    Box(
+                        modifier = Modifier.clickable{ deck.value }
+                    ){
                         Text(
                             text = deck.key,
                             fontWeight = FontWeight.Bold,

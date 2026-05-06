@@ -16,6 +16,7 @@ import org.example.project.viewmodel.GameViewModel
 @Composable
 fun NavigationWrapper(){
     val appVM: GameViewModel = viewModel{ GameViewModel() }
+    appVM.decksList["Spanish Mythology"] // to get some deck before start
     val backStack = rememberNavBackStack(navConfig, Route.MainMenu)
 
     val gameModes = listOf<GameMode>(

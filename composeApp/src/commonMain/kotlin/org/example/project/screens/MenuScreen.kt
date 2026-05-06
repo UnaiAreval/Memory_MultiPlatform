@@ -107,6 +107,9 @@ fun MenuScreen(navigateToSettings: () -> Unit, appVM: GameViewModel, gameModes: 
                     }
                 }
             }
+            item {
+                Text(appVM.deck[0].name)
+            }
         }
     }
 }
